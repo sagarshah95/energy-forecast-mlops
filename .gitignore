@@ -1,0 +1,58 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python bytecode and packaging
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Generated pipeline outputs (recreate with energy-ml pipeline / train)
+data/
+artifacts/
+
+# MLflow local tracking
+mlruns/
+mlflow.db
+
+# Secrets and local env (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Jupyter / Spark / OS / editors
+.ipynb_checkpoints/
+spark-warehouse/
+metastore_db/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

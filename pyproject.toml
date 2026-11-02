@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "energy-forecast-mlops"
+version = "0.1.0"
+description = "Portfolio-grade energy forecasting MLOps reference platform"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "pyarrow>=15,<24", "scikit-learn>=1.5,<2", "joblib>=1.4,<2", "pydantic>=2,<3", "fastapi>=0.110,<1", "uvicorn>=0.30,<1", "mlflow>=2.15,<4"]
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1", "ruff>=0.9,<1"]
+aws = ["boto3>=1.34,<2"]
+spark = ["pyspark>=3.5,<5"]
+airflow = ["apache-airflow>=3,<4"]
+torch = ["torch>=2.3,<3"]
+[project.scripts]
+energy-ml = "energy_ml.cli:main"
+# src layout: installable package so CLI, tests, Airflow, and API share one import path.
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100

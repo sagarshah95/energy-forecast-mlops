@@ -1,0 +1,9 @@
+# Local API only. Run `energy-ml train` on the host before `docker compose up --build`.
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ENERGY_MODEL_PATH: /app/artifacts/model.joblib
+    restart: unless-stopped
